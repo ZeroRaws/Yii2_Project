@@ -12,3 +12,4 @@ $config = require __DIR__ . '/../config/web.php';
 require __DIR__ . '/../functions.php';
 
 (new yii\web\Application($config))->run();
+
