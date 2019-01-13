@@ -132,6 +132,7 @@ class ArticleController extends Controller
     public function actionSetImage($id)
     {
         $model = new ImageUpload;
+
         if (yii::$app->request->isPost){
             $article = $this->findModel($id);
             $file = UploadedFile::getInstance($model, 'image');

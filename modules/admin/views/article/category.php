@@ -15,7 +15,9 @@ use yii\widgets\ActiveForm;
     <?= html::dropDownList('category', $selectedCategory, $categories, ['class'=>'form-control']) ?>
 
     <div class="form-group">
+        
         <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>
+
     </div>
 
     <?php ActiveForm::end(); ?>
