@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= html::dropDownList('category', $selectedCategory, $categories, ['class'=>'form-control']) ?>
+    <?= html::dropDownList('tags', $selectedTags, $tags, ['class'=>'form-control', 'multiple'=>true]) ?>
 
     <div class="form-group">
 
