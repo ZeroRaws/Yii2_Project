@@ -38,14 +38,14 @@ SiteAsset::register($this);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="/site/images/logo.jpg" alt=""></a>
+                <a class="navbar-brand" href="/index.php"><img src="/site/images/logo.jpg" alt=""></a>
             </div>
 
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav text-uppercase">
-                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="/">Home</a>
+                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="/index.php">Home</a>
 
                     </li>
                 </ul>
