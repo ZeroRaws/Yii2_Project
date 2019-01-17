@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\SiteAsset;
+use yii\helpers\Url;
 
 SiteAsset::register($this);
 ?>
@@ -38,21 +39,30 @@ SiteAsset::register($this);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/index.php"><img src="/site/images/logo.jpg" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="/site/images/logo.jpg" alt=""></a>
             </div>
 
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav text-uppercase">
-                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="/index.php">Home</a>
+                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="/">Home</a>
 
                     </li>
                 </ul>
                 <div class="i_con">
                     <ul class="nav navbar-nav text-uppercase">
-                        <li><a href="/site/login">Login</a></li>
-                        <li><a href="/site/signup">Register</a></li>
+                        <?php if (yii::$app->user->isGuest): ?>
+                            <li><a href="<?= Url::toRoute(['auth/login']); ?>">Login</a></li>
+                            <li><a href="<?= Url::toRoute(['auth/signup']); ?>">Register</a></li>
+                        <?php else: ?>
+                            <?= html::beginForm(['/auth/logout'], 'post')
+                                . html::submitButton(
+                                        'Logout ('. yii::$app->user->identity->name . ')',
+                                        ['class' => 'btn btn-link logout', 'style' => "padding-top:10px;"]
+                            )
+                            . html::endForm() ?>
+                        <?php endif; ?>
                     </ul>
                 </div>
 
