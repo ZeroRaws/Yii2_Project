@@ -24,7 +24,7 @@ class SiteAsset extends AssetBundle
         "site/css/responsive.css",
     ];
     public $js = [
-        "site/js/jquery-1.11.3.min.js",
+        //"site/js/jquery-1.11.3.min.js",
         "site/js/bootstrap.min.js",
         "site/js/owl.carousel.min.js",
         "site/js/jquery.stickit.min.js",

@@ -52,6 +52,11 @@ $config = [
             ],
         ],
         */
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'dateFormat' => 'long',
+            'locale' => 'ru-RU'
+        ],
     ],
     'modules' => [
         'admin' => [

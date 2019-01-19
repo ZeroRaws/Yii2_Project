@@ -102,6 +102,21 @@ class Article extends \yii\db\ActiveRecord
         }
     }
 
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
+    }
+
+    public function saveUser($user_id){
+        $user = User::findOne($user_id);
+
+        if ($user != null){
+            $this->link('user', $user);
+            return true;
+        }
+    }
+
+
     public function getTags(){
         return $this->hasMany(Tag::className(), ['id'=>'tag_id'])
             ->viaTable('article_tag', ['article_id'=>'id']);
