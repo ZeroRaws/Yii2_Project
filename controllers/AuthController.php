@@ -23,9 +23,10 @@ class AuthController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            //var_dump(yii::$app->user->isGuest);die;
             return $this->goBack();
         }
-
+//var_dump(yii::$app->user->isGuest);die;
         $model->password = '';
         return $this->render('/auth/login', [
             'model' => $model,
@@ -58,9 +59,13 @@ class AuthController extends Controller
     }
 
     public function actionLoginVk($uid, $first_name, $photo){
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
         $user = new User();
         if ($user->saveFromVk($uid, $first_name, $photo)){
-            return $this->redirect(['site/index']);
+            return $this->goBack();
         }
     }
 }
