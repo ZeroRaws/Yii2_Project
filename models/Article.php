@@ -164,4 +164,17 @@ class Article extends \yii\db\ActiveRecord
     public static function getRecent(){
         return Article::find()->orderBy('date asc')->limit(4)->all();
     }
+
+    public function saveArticle(){
+        $this->user_id = yii::$app->user->id;
+        return $this->save();
+    }
+
+    public function getComments(){
+        return $this->hasMany(Comment::className(), ['article_id'=>'id']);
+    }
+
+    public function getArticleComments(){
+        return $this->getComments()->where(['status'=>1])->all();
+    }
 }

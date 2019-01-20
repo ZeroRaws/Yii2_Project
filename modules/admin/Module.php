@@ -1,6 +1,8 @@
 <?php
 
 namespace app\modules\admin;
+use Yii;
+use yii\filters\AccessControl;
 
 /**
  * admin module definition class
@@ -17,6 +19,26 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
+
+    public function behaviors(){
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'denyCallback' => function($rule, $action){
+                    throw new \yii\web\NotAcceptableHttpException();
+                },
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function($rule, $action){
+                            return yii::$app->user->identity->isAdmin;
+                        }
+                    ]
+                ]
+            ]
+        ];
+    }
+
     public function init()
     {
         parent::init();

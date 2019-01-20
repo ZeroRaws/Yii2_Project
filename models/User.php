@@ -107,4 +107,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $this->create();
         return yii::$app->user->login($this);
     }
+
+    public function getImage(){
+        return $this->photo;
+    }
 }

@@ -59,7 +59,9 @@ SiteAsset::register($this);
                             <?= html::beginForm(['/auth/logout'], 'post')
                                 . html::submitButton(
                                         'Выйти ('. yii::$app->user->identity->name . ')',
-                                        ['class' => 'btn btn-link logout', 'style' => "padding-top:20px;"]
+                                        ['class' => 'btn btn-link logout',
+                                            'style' => "padding-top: 20px; color: #777; font-size: 12px;
+                                            letter-spacing: 1px; text-transform: uppercase;"]
                             )
                             . html::endForm() ?>
                         <?php endif; ?>
