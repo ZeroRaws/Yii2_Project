@@ -87,8 +87,8 @@ class SiteController extends Controller
         $comments = $article->getArticleComments();
         $commentForm = new CommentForm();
 
-        $article->viewed = $article->viewed+1;
-        $article->save();
+        $article->viewed += 1;
+        $article->save(false);
 
         return $this->render('post', [
             'article'=>$article,

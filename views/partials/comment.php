@@ -2,20 +2,14 @@
     <?php foreach ($comments as $comment): ?>
         <div class="bottom-comment"><!--bottom comment-->
             <h4>Комментарий</h4>
-
             <div class="comment-img">
-                <img width="50" class="img-circle" src="<?= $comment->user->image; ?>" alt="">
+                <img width="80" class="img-circle" src="<?= $comment->user->image; ?>" alt="">
             </div>
-
             <div class="comment-text">
-                <a href="#" class="replay btn pull-right"> Replay</a>
                 <h5><?= $comment->user->name; ?></h5>
-
                 <p class="comment-date">
                     <?= $comment->getdate(); ?>
                 </p>
-
-
                 <p class="para"><?= $comment->text; ?></p>
             </div>
         </div>
